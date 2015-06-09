@@ -1,0 +1,12 @@
+<div class='jumbotron'>
+  <button type='button'
+          class='btn'
+          ng-class="{
+                      'btn-info': !room.empty, 
+                      'btn-success': room.empty
+                    }" 
+          ng-repeat='room in rooms' 
+          ng-click='toggleRoom(room)'>
+    Toggle Room {{ room.name }}
+  </button>
+</div>
