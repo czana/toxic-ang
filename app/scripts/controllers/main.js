@@ -19,7 +19,6 @@ angular.module('toxicApp')
   			var snapshotVal = snapshot.val();
 
   			$scope.rooms.push({
-  				name: snapshotVal.name,
   				empty: snapshotVal.empty,
   				key: snapshot.key()
   			});
@@ -39,4 +38,12 @@ angular.module('toxicApp')
   			empty: !room.empty
   		});
   	};
+
+    $scope.setClass = function(room) {
+      return (room.empty == 1) ? 'empty' : 'busy';
+    };
+
+    $scope.getRoomPosition = function(room) {
+      return (room.key == 1) ? 'left' : 'right';
+    };
   });

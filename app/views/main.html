@@ -6,10 +6,12 @@
                   }" 
         ng-repeat='room in rooms' 
         ng-click='toggleRoom(room)'>
-  Toggle Room
+  {{ room.key }}
 </button>
 
 
 <div id='toxic-wrapper'>
-  
+	<div type='button' class='heart {{ getRoomPosition(room) }} {{ setClass(room) }}' ng-repeat='room in rooms'></div>
+	<div class='animation cable'></div>
+	<div class='animation fan'></div>
 </div>
