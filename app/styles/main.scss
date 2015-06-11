@@ -19,19 +19,25 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 }
 
 @mixin transform-rotate($val, $x, $y){
-    @if($val != null){
-        -webkit-transform: rotate($val + deg);
-        -moz-transform   : rotate($val + deg);
-        -o-transform     : rotate($val + deg);
-        -ms-transform    : rotate($val + deg);
-        transform        : rotate($val + deg);
+  -webkit-transform: rotate($val + deg);
+  -moz-transform   : rotate($val + deg);
+  -o-transform     : rotate($val + deg);
+  -ms-transform    : rotate($val + deg);
+  transform        : rotate($val + deg);
 
-        -webkit-transform-origin: $x $y;
-        -moz-transform-origin: $x $y;
-        -o-transform-origin: $x $y;
-        -ms-transform-origin: $x $y;
-        transform-origin: $x $y;
-    }
+  -webkit-transform-origin: $x $y;
+  -moz-transform-origin   : $x $y;
+  -o-transform-origin     : $x $y;
+  -ms-transform-origin    : $x $y;
+  transform-origin        : $x $y;
+}
+
+@mixin translate-translate ($x, $y) {
+  -webkit-transform: translate($x, $y);
+  -moz-transform   : translate($x, $y);
+  -o-transform     : translate($x, $y);
+  -ms-transform    : translate($x, $y);
+  transform        : translate($x, $y);
 }
 
 .browsehappy {
@@ -143,6 +149,8 @@ $toxic-height: 350px;
   top: calc(45% - #{$toxic-height} / 2);
   left: calc(50% - #{$toxic-width} / 2);
 
+  @include animation(float 5s infinite ease-in-out);
+
   .heart {
     width: 20px;
     height: 20px;
@@ -207,3 +215,13 @@ $toxic-height: 350px;
   100% { @include transform-rotate(10, 50%, 0%); }
 }
 
+@include keyframes(float) {
+  0% { @include translate-translate(12px, -3px); }
+  25% { @include translate-translate(4px, 11px); }
+  50% { @include translate-translate(-11px, 4px); }
+  75% { @include translate-translate(-8px, -2px); }
+  100% { @include translate-translate(12px, -3px); }
+  // 50% { @include translate-translate(-10px, 0px); }
+  // 75% { @include translate-translate(10px, -10px); }
+  // 100% { @include translate-translate(-10px, 20px); }
+}
