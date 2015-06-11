@@ -3,6 +3,37 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin transform-rotate($val, $x, $y){
+    @if($val != null){
+        -webkit-transform: rotate($val + deg);
+        -moz-transform   : rotate($val + deg);
+        -o-transform     : rotate($val + deg);
+        -ms-transform    : rotate($val + deg);
+        transform        : rotate($val + deg);
+
+        -webkit-transform-origin: $x $y;
+        -moz-transform-origin: $x $y;
+        -o-transform-origin: $x $y;
+        -ms-transform-origin: $x $y;
+        transform-origin: $x $y;
+    }
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -91,12 +122,88 @@ body {
 }
 
 /* MINE */
-$main-color: #19BD9B; 
+$main-color: #19BD9B;
+$main-color-darker: #0F6655;
+$main-color-darkest: #0B493D;
 
 body {
   background-color: $main-color;
 }
 
-.toxic-wrapper {
+$toxic-width: 350px;
+$toxic-height: 350px;
+
+#toxic-wrapper {
+  background-image: url('../images/toxic-bg.png');
+  background-repeat: no-repeat;
+  height: $toxic-height;
+  width: $toxic-width;
+
+  position: absolute;
+  top: calc(45% - #{$toxic-height} / 2);
+  left: calc(50% - #{$toxic-width} / 2);
+
+  .heart {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+
+    &.left {
+      top: 70px;
+      left: 110px;
+    }
+
+    &.right {
+      top: 75px;
+      left: 245px;
+    }
+
+    &.busy {
+      background-image: url('../images/heart-busy.png');
+    }
+
+    &.empty {
+      background-image: url('../images/heart-empty.png');
+    }
+  }
+
+  .animation {
+    position: absolute;
+    background-repeat: no-repeat;
+
+    &.fan {
+      width: 32px;
+      height: 32px;
+      top: 145px;
+      left: 17px;
+      background-image: url('../images/fan.png');
+
+      @include animation(spin 1.5s infinite linear);
+    }
+
+    &.cable {
+      width: 18px;
+      height: 102px;
+      top: 202px;
+      left: 327px;
+      background-image: url('../images/cable.png');
+
+      @include animation(pendulum 3s infinite ease-in-out);
+    } 
+  }
+}
+
+/* Animations */
+
+@include keyframes(spin) {
+  0% { @include transform-rotate(0, 50%, 50%); } 
+  100% { @include transform-rotate(360, 50%, 50%); }
+}
+
+@include keyframes(pendulum) {
+  0% { @include transform-rotate(10, 50%, 0%); }
+  50% { @include transform-rotate(-10, 50%, 0%); }
+  100% { @include transform-rotate(10, 50%, 0%); }
 }
 
