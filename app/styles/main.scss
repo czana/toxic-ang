@@ -221,7 +221,4 @@ $toxic-height: 350px;
   50% { @include translate-translate(-11px, 4px); }
   75% { @include translate-translate(-8px, -2px); }
   100% { @include translate-translate(12px, -3px); }
-  // 50% { @include translate-translate(-10px, 0px); }
-  // 75% { @include translate-translate(10px, -10px); }
-  // 100% { @include translate-translate(-10px, 20px); }
 }
