@@ -149,7 +149,7 @@ $toxic-height: 350px;
   top: calc(45% - #{$toxic-height} / 2);
   left: calc(50% - #{$toxic-width} / 2);
 
-  @include animation(float 5s infinite ease-in-out);
+  @include animation(spin-wrapper 9s infinite ease-in-out);
 
   .heart {
     width: 20px;
@@ -221,4 +221,12 @@ $toxic-height: 350px;
   50% { @include translate-translate(-11px, 4px); }
   75% { @include translate-translate(-8px, -2px); }
   100% { @include translate-translate(12px, -3px); }
+}
+
+@include keyframes(spin-wrapper) {
+  0% { @include transform-rotate(1, 50%, 50%); }
+  25% { @include transform-rotate(-2, 50%, 50%); }
+  50% { @include transform-rotate(2, 50%, 50%); }
+  75% { @include transform-rotate(-1, 50%, 50%); }
+  100% { @include transform-rotate(1, 50%, 50%); }
 }
