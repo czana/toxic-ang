@@ -128,20 +128,26 @@ body {
 }
 
 /* MINE */
-$main-color: #19BD9B;
-$main-color-darker: #0F6655;
-$main-color-darkest: #0B493D;
+$main-color: #3598DC;
+$main-color-darker: #1B557C;
+$main-color-darkest: #113751;
 
 body {
   background-color: $main-color;
+
+  .brand {
+    width: 110px;
+    margin: 25px 25px;
+    position: fixed;
+  }
 }
 
 $toxic-width: 350px;
 $toxic-height: 350px;
 
 #toxic-wrapper {
-  background-image: url('../images/toxic-bg.png');
-  background-repeat: no-repeat;
+  // background-image: url('../images/toxic-bg.svg');
+  // background-repeat: no-repeat;
   height: $toxic-height;
   width: $toxic-width;
 
