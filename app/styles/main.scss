@@ -170,15 +170,15 @@ $toxic-height: 350px;
 
     &.right {
       top: 75px;
-      left: 245px;
+      left: 244px;
     }
 
     &.busy {
-      background-image: url('../images/heart-busy.png');
+      background-image: url('../images/heart-busy.svg');
     }
 
     &.empty {
-      background-image: url('../images/heart-empty.png');
+      background-image: url('../images/heart-empty.svg');
     }
   }
 
@@ -191,7 +191,7 @@ $toxic-height: 350px;
       height: 32px;
       top: 145px;
       left: 17px;
-      background-image: url('../images/fan.png');
+      background-image: url('../images/fan.svg');
 
       @include animation(spin 1.5s infinite linear);
     }
@@ -200,8 +200,8 @@ $toxic-height: 350px;
       width: 18px;
       height: 102px;
       top: 202px;
-      left: 327px;
-      background-image: url('../images/cable.png');
+      left: 328px;
+      background-image: url('../images/cable.svg');
 
       @include animation(pendulum 3s infinite ease-in-out);
     } 
