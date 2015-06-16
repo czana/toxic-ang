@@ -152,10 +152,41 @@ $toxic-height: 350px;
   width: $toxic-width;
 
   position: absolute;
-  top: calc(45% - #{$toxic-height} / 2);
+  top: calc(48% - #{$toxic-height} / 2);
   left: calc(50% - #{$toxic-width} / 2);
 
   @include animation(spin-wrapper 9s infinite ease-in-out);
+
+  .cloud {
+    width: 90px;
+    height: 71px;
+    position: absolute;
+
+    img {
+      position: absolute;
+    }
+
+    span {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: $main-color-darkest;
+
+      font-family: "Courier New", Courier, monospace;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    &.left {
+      top: -50px;
+      left: 0px;
+    }
+
+    &.right {
+      top: -30px;
+      left: 295px;
+    }
+  }
 
   .heart {
     width: 20px;

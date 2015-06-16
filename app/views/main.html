@@ -1,6 +1,10 @@
 <div id='toxic-wrapper'>
   <img src='images/toxic-bg.svg'>
-	<div type='button' class='heart {{ getRoomPosition(room) }} {{ setClass(room) }}' ng-repeat='room in rooms'></div>
+	<div class='heart {{ getRoomPosition(room) }} {{ getClass(room) }}' ng-repeat='room in rooms'></div>
+  <div class='cloud {{ getRoomPosition(room) }}' ng-show='getClass(room) == "busy"' ng-repeat='room in rooms'>
+    <img ng-src='images/cloud-{{getRoomPosition(room)}}.svg'>
+    <span>{{ room.time | date:'mm:ss' }}</span>
+  </div>
 	<div class='animation cable'></div>
 	<div class='animation fan'></div>
 </div>
