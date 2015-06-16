@@ -1,4 +1,1 @@
-<button type="button" class="btn" ng-class="{
-                    'btn-info': !room.empty, 
-                    'btn-success': room.empty
-                  }" ng-repeat="room in rooms" ng-click="toggleRoom(room)"> {{ room.key }} </button> <div id="toxic-wrapper"> <div type="button" class="heart {{ getRoomPosition(room) }} {{ setClass(room) }}" ng-repeat="room in rooms"></div> <div class="animation cable"></div> <div class="animation fan"></div> </div>
+<div id="toxic-wrapper"> <img src="images/toxic-bg.4e017d53.svg"> <div class="heart {{ getRoomPosition(room) }} {{ getClass(room) }}" ng-repeat="room in rooms"></div> <div class="cloud {{ getRoomPosition(room) }}" ng-show="getClass(room) == &quot;busy&quot;" ng-repeat="room in rooms"> <img ng-src="images/cloud-{{getRoomPosition(room)}}.svg"> <span>{{ room.time | date:'mm:ss' }}</span> </div> <div class="animation cable"></div> <div class="animation fan"></div> </div>
