@@ -44,8 +44,15 @@ angular.module('toxicApp')
   			var room = $.grep($scope.rooms, function(room) { return room.key == snapshot.key(); })[0];
   			room.empty = snapshotVal.empty;
         room.time = 0;
+        $scope.updateFavicon();
   		});
   	});
+
+    $scope.updateFavicon = function() {
+      var left = ($scope.rooms[0].empty == true) ? 1 : 0;
+      var right = ($scope.rooms[1].empty == true) ? 1 : 0;
+      favicon.change('images/favicon/' + left + '' + right + '.ico');
+    }
 
   	$scope.toggleRoom = function(room) {
   		roomsRef.child(room.key).update({
@@ -54,7 +61,7 @@ angular.module('toxicApp')
   	};
 
     $scope.getClass = function(room) {
-      return (room.empty == 1) ? 'empty' : 'busy';
+      return (room.empty == true) ? 'empty' : 'busy';
     };
 
     $scope.getRoomPosition = function(room) {

@@ -6,6 +6,7 @@ change: function(iconURL) {
   }
   this.addLink(iconURL, "icon");
   this.addLink(iconURL, "shortcut icon");
+  console.log(iconURL);
 },
  
 addLink: function(iconURL, relValue) {
