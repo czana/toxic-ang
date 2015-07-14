@@ -33,6 +33,9 @@ angular.module('toxicApp')
   				key: snapshot.key()
   			});
 
+        if($scope.rooms.length == 2)
+          $scope.updateFavicon();  
+
         if(!counter)
           counter = $timeout($scope.onCount, 1000);
   		});
